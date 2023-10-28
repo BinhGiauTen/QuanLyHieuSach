@@ -19,6 +19,7 @@ public class FrmMain extends javax.swing.JFrame {
      */
     Color DefaultColor,ClickColor;
     
+    
     public FrmMain() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -32,22 +33,11 @@ public class FrmMain extends javax.swing.JFrame {
         lblCustomerSta.setForeground(DefaultColor);
         lblDiscount.setForeground(DefaultColor);
         lblOrder.setForeground(DefaultColor);
-        lblOrderSta.setForeground(DefaultColor);
         lblProduct.setForeground(DefaultColor);
         lblProductSta.setForeground(DefaultColor);
         lblRevenueSta.setForeground(DefaultColor);        
         lblStaff.setForeground(DefaultColor);
-        lblSupplier.setForeground(DefaultColor);
-        lblWarehouse.setForeground(DefaultColor);
-        lblWarehouseSta.setForeground(DefaultColor);        
-        
-
-
-
-        
-                
-        
-
+        lblShelves.setForeground(DefaultColor);
     }
 
     /**
@@ -66,11 +56,15 @@ public class FrmMain extends javax.swing.JFrame {
         lblInfo = new javax.swing.JLabel();
         lblLogout = new javax.swing.JLabel();
         DPAccount = new javax.swing.JDesktopPane();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         lblSell = new javax.swing.JLabel();
         lblBuy = new javax.swing.JLabel();
         DPOrder = new javax.swing.JDesktopPane();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         lblCustomer = new javax.swing.JLabel();
@@ -78,17 +72,18 @@ public class FrmMain extends javax.swing.JFrame {
         lblProduct = new javax.swing.JLabel();
         lblOrder = new javax.swing.JLabel();
         lblDiscount = new javax.swing.JLabel();
-        lblSupplier = new javax.swing.JLabel();
-        lblWarehouse = new javax.swing.JLabel();
+        lblShelves = new javax.swing.JLabel();
         DPManage = new javax.swing.JDesktopPane();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         lblCustomerSta = new javax.swing.JLabel();
-        lblProductSta = new javax.swing.JLabel();
-        lblOrderSta = new javax.swing.JLabel();
         lblRevenueSta = new javax.swing.JLabel();
-        lblWarehouseSta = new javax.swing.JLabel();
+        lblProductSta = new javax.swing.JLabel();
         DPSta = new javax.swing.JDesktopPane();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -132,7 +127,7 @@ public class FrmMain extends javax.swing.JFrame {
                 .addComponent(lblInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1034, Short.MAX_VALUE))
+                .addContainerGap(1044, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,17 +139,24 @@ public class FrmMain extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        DPAccount.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/desk3.png"))); // NOI18N
+        jPanel11.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 660));
+
+        DPAccount.setLayer(jPanel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout DPAccountLayout = new javax.swing.GroupLayout(DPAccount);
         DPAccount.setLayout(DPAccountLayout);
         DPAccountLayout.setHorizontalGroup(
             DPAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DPAccountLayout.createSequentialGroup()
+                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         DPAccountLayout.setVerticalGroup(
             DPAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 659, Short.MAX_VALUE)
+            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -210,7 +212,7 @@ public class FrmMain extends javax.swing.JFrame {
                 .addComponent(lblSell, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblBuy)
-                .addContainerGap(1049, Short.MAX_VALUE))
+                .addContainerGap(1059, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,15 +224,24 @@ public class FrmMain extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/desk3.png"))); // NOI18N
+        jPanel12.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 660));
+
+        DPOrder.setLayer(jPanel12, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout DPOrderLayout = new javax.swing.GroupLayout(DPOrder);
         DPOrder.setLayout(DPOrderLayout);
         DPOrderLayout.setHorizontalGroup(
             DPOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DPOrderLayout.createSequentialGroup()
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         DPOrderLayout.setVerticalGroup(
             DPOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 659, Short.MAX_VALUE)
+            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -250,7 +261,7 @@ public class FrmMain extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Giao dịch", jPanel3);
 
-        lblCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customer (2).png"))); // NOI18N
+        lblCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customer.png"))); // NOI18N
         lblCustomer.setText("Khách hàng");
         lblCustomer.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblCustomer.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -263,7 +274,7 @@ public class FrmMain extends javax.swing.JFrame {
             }
         });
 
-        lblStaff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customer.png"))); // NOI18N
+        lblStaff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customer (2).png"))); // NOI18N
         lblStaff.setText("Nhân viên");
         lblStaff.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblStaff.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -315,23 +326,18 @@ public class FrmMain extends javax.swing.JFrame {
             }
         });
 
-        lblSupplier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/supplier.png"))); // NOI18N
-        lblSupplier.setText("Nhà cung cấp");
-        lblSupplier.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblSupplier.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        lblSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblShelves.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Shelves.png"))); // NOI18N
+        lblShelves.setText("Kệ hàng");
+        lblShelves.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblShelves.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lblShelves.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblSupplierMouseClicked(evt);
+                lblShelvesMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblSupplierMousePressed(evt);
+                lblShelvesMousePressed(evt);
             }
         });
-
-        lblWarehouse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home.png"))); // NOI18N
-        lblWarehouse.setText("Kho hàng");
-        lblWarehouse.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblWarehouse.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -349,10 +355,8 @@ public class FrmMain extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblDiscount)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblSupplier)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblWarehouse)
-                .addContainerGap(700, Short.MAX_VALUE))
+                .addComponent(lblShelves)
+                .addContainerGap(797, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,20 +368,28 @@ public class FrmMain extends javax.swing.JFrame {
                     .addComponent(lblStaff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblDiscount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblWarehouse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblShelves, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
+
+        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/desk3.png"))); // NOI18N
+        jPanel13.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 660));
+
+        DPManage.setLayer(jPanel13, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout DPManageLayout = new javax.swing.GroupLayout(DPManage);
         DPManage.setLayout(DPManageLayout);
         DPManageLayout.setHorizontalGroup(
             DPManageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DPManageLayout.createSequentialGroup()
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         DPManageLayout.setVerticalGroup(
             DPManageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 659, Short.MAX_VALUE)
+            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -397,30 +409,20 @@ public class FrmMain extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Quản lý", jPanel4);
 
-        lblCustomerSta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customer (2).png"))); // NOI18N
+        lblCustomerSta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/customer.png"))); // NOI18N
         lblCustomerSta.setText("Khách hàng");
         lblCustomerSta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblCustomerSta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        lblProductSta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/product.png"))); // NOI18N
-        lblProductSta.setText("Sản phẩm");
-        lblProductSta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblProductSta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        lblOrderSta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/order.png"))); // NOI18N
-        lblOrderSta.setText("Hóa đơn");
-        lblOrderSta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblOrderSta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         lblRevenueSta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/report.png"))); // NOI18N
         lblRevenueSta.setText("Doanh thu");
         lblRevenueSta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblRevenueSta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        lblWarehouseSta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home.png"))); // NOI18N
-        lblWarehouseSta.setText("Tồn kho");
-        lblWarehouseSta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lblWarehouseSta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lblProductSta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home.png"))); // NOI18N
+        lblProductSta.setText("Sản phẩm");
+        lblProductSta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblProductSta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -428,16 +430,12 @@ public class FrmMain extends javax.swing.JFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(lblWarehouseSta)
+                .addComponent(lblProductSta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblCustomerSta, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblProductSta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblOrderSta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblRevenueSta)
-                .addContainerGap(858, Short.MAX_VALUE))
+                .addContainerGap(986, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -446,22 +444,29 @@ public class FrmMain extends javax.swing.JFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblCustomerSta, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblOrderSta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblProductSta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblRevenueSta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblWarehouseSta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(lblProductSta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
+
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/desk3.png"))); // NOI18N
+        jPanel14.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 660));
+
+        DPSta.setLayer(jPanel14, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout DPStaLayout = new javax.swing.GroupLayout(DPSta);
         DPSta.setLayout(DPStaLayout);
         DPStaLayout.setHorizontalGroup(
             DPStaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         DPStaLayout.setVerticalGroup(
             DPStaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 659, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DPStaLayout.createSequentialGroup()
+                .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -485,16 +490,16 @@ public class FrmMain extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1200, Short.MAX_VALUE)
+            .addGap(0, 1210, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 765, Short.MAX_VALUE)
+            .addGap(0, 772, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Trợ giúp", jPanel6);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 800));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -556,14 +561,12 @@ public class FrmMain extends javax.swing.JFrame {
         lblCustomerSta.setForeground(DefaultColor);
         lblDiscount.setForeground(DefaultColor);
         lblOrder.setForeground(DefaultColor);
-        lblOrderSta.setForeground(DefaultColor);
         lblProduct.setForeground(DefaultColor);
         lblProductSta.setForeground(DefaultColor);
         lblRevenueSta.setForeground(DefaultColor);        
         lblStaff.setForeground(DefaultColor);
-        lblSupplier.setForeground(DefaultColor);
-        lblWarehouse.setForeground(DefaultColor);
-        lblWarehouseSta.setForeground(DefaultColor);  
+        lblShelves.setForeground(DefaultColor);
+        
     }//GEN-LAST:event_lblInfoMousePressed
 
     private void lblLogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLogoutMousePressed
@@ -575,14 +578,11 @@ public class FrmMain extends javax.swing.JFrame {
         lblCustomerSta.setForeground(DefaultColor);
         lblDiscount.setForeground(DefaultColor);
         lblOrder.setForeground(DefaultColor);
-        lblOrderSta.setForeground(DefaultColor);
         lblProduct.setForeground(DefaultColor);
         lblProductSta.setForeground(DefaultColor);
         lblRevenueSta.setForeground(DefaultColor);        
         lblStaff.setForeground(DefaultColor);
-        lblSupplier.setForeground(DefaultColor);
-        lblWarehouse.setForeground(DefaultColor);
-        lblWarehouseSta.setForeground(DefaultColor);  
+        lblShelves.setForeground(DefaultColor);
     }//GEN-LAST:event_lblLogoutMousePressed
 
     private void lblSellMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSellMousePressed
@@ -594,14 +594,11 @@ public class FrmMain extends javax.swing.JFrame {
         lblCustomerSta.setForeground(DefaultColor);
         lblDiscount.setForeground(DefaultColor);
         lblOrder.setForeground(DefaultColor);
-        lblOrderSta.setForeground(DefaultColor);
         lblProduct.setForeground(DefaultColor);
         lblProductSta.setForeground(DefaultColor);
         lblRevenueSta.setForeground(DefaultColor);        
         lblStaff.setForeground(DefaultColor);
-        lblSupplier.setForeground(DefaultColor);
-        lblWarehouse.setForeground(DefaultColor);
-        lblWarehouseSta.setForeground(DefaultColor);  
+        lblShelves.setForeground(DefaultColor);
     }//GEN-LAST:event_lblSellMousePressed
 
     private void lblBuyMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuyMousePressed
@@ -613,14 +610,11 @@ public class FrmMain extends javax.swing.JFrame {
         lblCustomerSta.setForeground(DefaultColor);
         lblDiscount.setForeground(DefaultColor);
         lblOrder.setForeground(DefaultColor);
-        lblOrderSta.setForeground(DefaultColor);
         lblProduct.setForeground(DefaultColor);
         lblProductSta.setForeground(DefaultColor);
         lblRevenueSta.setForeground(DefaultColor);        
         lblStaff.setForeground(DefaultColor);
-        lblSupplier.setForeground(DefaultColor);
-        lblWarehouse.setForeground(DefaultColor);
-        lblWarehouseSta.setForeground(DefaultColor);  
+        lblShelves.setForeground(DefaultColor);
     }//GEN-LAST:event_lblBuyMousePressed
 
     private void lblCustomerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCustomerMousePressed
@@ -632,14 +626,11 @@ public class FrmMain extends javax.swing.JFrame {
         lblCustomerSta.setForeground(DefaultColor);
         lblDiscount.setForeground(DefaultColor);
         lblOrder.setForeground(DefaultColor);
-        lblOrderSta.setForeground(DefaultColor);
         lblProduct.setForeground(DefaultColor);
         lblProductSta.setForeground(DefaultColor);
         lblRevenueSta.setForeground(DefaultColor);        
         lblStaff.setForeground(DefaultColor);
-        lblSupplier.setForeground(DefaultColor);
-        lblWarehouse.setForeground(DefaultColor);
-        lblWarehouseSta.setForeground(DefaultColor);      
+        lblShelves.setForeground(DefaultColor);
     }//GEN-LAST:event_lblCustomerMousePressed
 
     private void lblStaffMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStaffMousePressed
@@ -651,14 +642,11 @@ public class FrmMain extends javax.swing.JFrame {
         lblCustomerSta.setForeground(DefaultColor);
         lblDiscount.setForeground(DefaultColor);
         lblOrder.setForeground(DefaultColor);
-        lblOrderSta.setForeground(DefaultColor);
         lblProduct.setForeground(DefaultColor);
         lblProductSta.setForeground(DefaultColor);
         lblRevenueSta.setForeground(DefaultColor);        
         lblStaff.setForeground(ClickColor);
-        lblSupplier.setForeground(DefaultColor);
-        lblWarehouse.setForeground(DefaultColor);
-        lblWarehouseSta.setForeground(DefaultColor);      
+        lblShelves.setForeground(DefaultColor);      
     }//GEN-LAST:event_lblStaffMousePressed
 
     private void lblProductMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblProductMousePressed
@@ -670,14 +658,11 @@ public class FrmMain extends javax.swing.JFrame {
         lblCustomerSta.setForeground(DefaultColor);
         lblDiscount.setForeground(DefaultColor);
         lblOrder.setForeground(DefaultColor);
-        lblOrderSta.setForeground(DefaultColor);
         lblProduct.setForeground(ClickColor);
         lblProductSta.setForeground(DefaultColor);
         lblRevenueSta.setForeground(DefaultColor);        
         lblStaff.setForeground(DefaultColor);
-        lblSupplier.setForeground(DefaultColor);
-        lblWarehouse.setForeground(DefaultColor);
-        lblWarehouseSta.setForeground(DefaultColor);      
+        lblShelves.setForeground(DefaultColor);     
     }//GEN-LAST:event_lblProductMousePressed
 
     private void lblOrderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblOrderMousePressed
@@ -689,14 +674,11 @@ public class FrmMain extends javax.swing.JFrame {
         lblCustomerSta.setForeground(DefaultColor);
         lblDiscount.setForeground(DefaultColor);
         lblOrder.setForeground(ClickColor);
-        lblOrderSta.setForeground(DefaultColor);
         lblProduct.setForeground(DefaultColor);
         lblProductSta.setForeground(DefaultColor);
         lblRevenueSta.setForeground(DefaultColor);        
         lblStaff.setForeground(DefaultColor);
-        lblSupplier.setForeground(DefaultColor);
-        lblWarehouse.setForeground(DefaultColor);
-        lblWarehouseSta.setForeground(DefaultColor);      
+        lblShelves.setForeground(DefaultColor);      
     }//GEN-LAST:event_lblOrderMousePressed
 
     private void lblDiscountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDiscountMouseClicked
@@ -714,23 +696,21 @@ public class FrmMain extends javax.swing.JFrame {
         lblCustomerSta.setForeground(DefaultColor);
         lblDiscount.setForeground(ClickColor);
         lblOrder.setForeground(DefaultColor);
-        lblOrderSta.setForeground(DefaultColor);
         lblProduct.setForeground(DefaultColor);
         lblProductSta.setForeground(DefaultColor);
         lblRevenueSta.setForeground(DefaultColor);        
         lblStaff.setForeground(DefaultColor);
-        lblSupplier.setForeground(DefaultColor);
-        lblWarehouse.setForeground(DefaultColor);
-        lblWarehouseSta.setForeground(DefaultColor);    
+        lblShelves.setForeground(DefaultColor);  
     }//GEN-LAST:event_lblDiscountMousePressed
 
-    private void lblSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSupplierMouseClicked
-        FrmSupplier supplier = new FrmSupplier();
+    private void lblShelvesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblShelvesMouseClicked
+        FrmShelf shelf = new FrmShelf();
         DPManage.removeAll();
-        DPManage.add(supplier).setVisible(true);
-    }//GEN-LAST:event_lblSupplierMouseClicked
+        DPManage.add(shelf).setVisible(true);
+    }//GEN-LAST:event_lblShelvesMouseClicked
 
-    private void lblSupplierMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSupplierMousePressed
+    private void lblShelvesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblShelvesMousePressed
+
         lblInfo.setForeground(DefaultColor);
         lblLogout.setForeground(DefaultColor);
         lblSell.setForeground(DefaultColor);        
@@ -739,15 +719,12 @@ public class FrmMain extends javax.swing.JFrame {
         lblCustomerSta.setForeground(DefaultColor);
         lblDiscount.setForeground(DefaultColor);
         lblOrder.setForeground(DefaultColor);
-        lblOrderSta.setForeground(DefaultColor);
         lblProduct.setForeground(DefaultColor);
         lblProductSta.setForeground(DefaultColor);
         lblRevenueSta.setForeground(DefaultColor);        
         lblStaff.setForeground(DefaultColor);
-        lblSupplier.setForeground(ClickColor);
-        lblWarehouse.setForeground(DefaultColor);
-        lblWarehouseSta.setForeground(DefaultColor);  
-    }//GEN-LAST:event_lblSupplierMousePressed
+        lblShelves.setForeground(ClickColor);  
+    }//GEN-LAST:event_lblShelvesMousePressed
 
     /**
      * @param args the command line arguments
@@ -789,8 +766,16 @@ public class FrmMain extends javax.swing.JFrame {
     private javax.swing.JDesktopPane DPManage;
     private javax.swing.JDesktopPane DPOrder;
     private javax.swing.JDesktopPane DPSta;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -807,14 +792,11 @@ public class FrmMain extends javax.swing.JFrame {
     private javax.swing.JLabel lblInfo;
     private javax.swing.JLabel lblLogout;
     private javax.swing.JLabel lblOrder;
-    private javax.swing.JLabel lblOrderSta;
     private javax.swing.JLabel lblProduct;
     private javax.swing.JLabel lblProductSta;
     private javax.swing.JLabel lblRevenueSta;
     private javax.swing.JLabel lblSell;
+    private javax.swing.JLabel lblShelves;
     private javax.swing.JLabel lblStaff;
-    private javax.swing.JLabel lblSupplier;
-    private javax.swing.JLabel lblWarehouse;
-    private javax.swing.JLabel lblWarehouseSta;
     // End of variables declaration//GEN-END:variables
 }
