@@ -22,6 +22,7 @@ public class Dao_KhuyenMai implements I_KhuyenMai{
 	public ArrayList<KhuyenMai> getAllKhuyenMai() {
 		ArrayList<KhuyenMai> dsKM = new ArrayList<KhuyenMai>();
 		try {
+			ConnectDB.getInstance();
 			Connection con = ConnectDB.getConnection();
 			String sql = "Select * from KhuyenMai";
 			Statement sta = con.createStatement();
@@ -87,9 +88,9 @@ public class Dao_KhuyenMai implements I_KhuyenMai{
 		try {
 			ConnectDB.getInstance();
 			Connection con = ConnectDB.getConnection();
-			String sql = "Select * from KHUYENMAI where TENKHUYENMAI = ?";
+			String sql = "Select * from KHUYENMAI where TENKHUYENMAI LIKE ?";
 			sta = con.prepareStatement(sql);
-			sta.setString(1, tenKM);
+			sta.setString(1, "%" + tenKM + "%");
 
 			ResultSet rs = sta.executeQuery();
 
@@ -133,6 +134,7 @@ public class Dao_KhuyenMai implements I_KhuyenMai{
 			sta.setDate(5, km.getNgayKetThuc());
 			sta.setString(6, km.getDoiTuongApDung());
 			sta.setString(7, km.getTinhTrang());
+			n = sta.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

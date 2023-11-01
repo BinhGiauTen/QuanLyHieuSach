@@ -4,7 +4,6 @@ import java.util.Objects;
 
 public class TaiKhoan {
 	private String maTaiKhoan;
-	private String email;
 	private String matKhau;
 	private String tenTaiKhoan;
 	private NhanVien nhanVien;
@@ -13,12 +12,6 @@ public class TaiKhoan {
 	}
 	public void setMaTaiKhoan(String maTaiKhoan) {
 		this.maTaiKhoan = maTaiKhoan;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	public String getMatKhau() {
 		return matKhau;
@@ -38,10 +31,9 @@ public class TaiKhoan {
 	public void setNhanVien(NhanVien nhanVien) {
 		this.nhanVien = nhanVien;
 	}
-	public TaiKhoan(String maTaiKhoan, String email, String matKhau, String tenTaiKhoan, NhanVien nhanVien) {
+	public TaiKhoan(String maTaiKhoan, String matKhau, String tenTaiKhoan, NhanVien nhanVien) {
 		super();
 		this.maTaiKhoan = maTaiKhoan;
-		this.email = email;
 		this.matKhau = matKhau;
 		this.tenTaiKhoan = tenTaiKhoan;
 		this.nhanVien = nhanVien;
@@ -56,8 +48,8 @@ public class TaiKhoan {
 	}
 	@Override
 	public String toString() {
-		return "TaiKhoan [maTaiKhoan=" + maTaiKhoan + ", email=" + email + ", matKhau=" + matKhau + ", tenTaiKhoan="
-				+ tenTaiKhoan + ", nhanVien=" + nhanVien + "]";
+		return "TaiKhoan [maTaiKhoan=" + maTaiKhoan + ", matKhau=" + matKhau + ", tenTaiKhoan=" + tenTaiKhoan
+				+ ", nhanVien=" + nhanVien + "]";
 	}
 	@Override
 	public int hashCode() {

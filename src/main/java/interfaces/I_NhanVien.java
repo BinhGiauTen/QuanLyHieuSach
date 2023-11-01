@@ -18,5 +18,4 @@ public interface I_NhanVien {
 	
 	public boolean capNhat(NhanVien nv);
 	
-	public boolean xoa(String maNV);
 }

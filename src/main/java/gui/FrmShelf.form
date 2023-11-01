@@ -141,10 +141,10 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
-                    <StringItem index="0" value="C&#xf2;n ch&#x1ed7; ch&#x1ee9;a"/>
-                    <StringItem index="1" value="H&#x1ebf;t ch&#x1ed7; ch&#x1ee9;a"/>
+                    <StringItem index="0" value="C&#xf2;n tr&#x1ed1;ng"/>
+                    <StringItem index="1" value="&#x110;&#x1ea7;y &#x111;&#x1ee7;"/>
                     <StringItem index="2" value="Ng&#x1b0;ng s&#x1eed; d&#x1ee5;ng"/>
-                    <StringItem index="3" value=" "/>
+                    <StringItem index="3" value=""/>
                   </StringArray>
                 </Property>
               </Properties>

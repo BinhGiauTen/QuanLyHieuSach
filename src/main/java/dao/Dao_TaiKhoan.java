@@ -32,12 +32,11 @@ public class Dao_TaiKhoan implements I_TaiKhoan{
 
 			while (rs.next()) {
 				String maTK = rs.getString("MATAIKHOAN");
-				String email = rs.getString("EMAIL");
 				String matKhau = rs.getString("MATKHAU");
 				String tenTK = rs.getString("TENTAIKHOAN");
 				NhanVien nhanVien = new NhanVien(rs.getString("MANHANVIEN"));
 
-				TaiKhoan tk = new TaiKhoan(maTK, email, matKhau, tenTK, nhanVien);
+				TaiKhoan tk = new TaiKhoan(maTK, matKhau, tenTK, nhanVien);
 				dsTK.add(tk);
 			}
 		} catch (SQLException e) {
@@ -60,12 +59,11 @@ public class Dao_TaiKhoan implements I_TaiKhoan{
 			ResultSet rs = sta.executeQuery();
 			while (rs.next()) {
 				String maTK = rs.getString("MATAIKHOAN");
-				String email = rs.getString("EMAIL");
 				String matKhau = rs.getString("MATKHAU");
 				String tenTK = rs.getString("TENTAIKHOAN");
 				NhanVien nhanVien = new NhanVien(rs.getString("MANHANVIEN"));
 
-				tk = new TaiKhoan(maTK, email, matKhau, tenTK, nhanVien);
+				tk = new TaiKhoan(maTK, matKhau, tenTK, nhanVien);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -86,14 +84,13 @@ public class Dao_TaiKhoan implements I_TaiKhoan{
 		try {
 			ConnectDB.getInstance();
 			Connection con = ConnectDB.getConnection();
-			String sql = "insert into TaiKhoan values(?,?,?,?,?)";
+			String sql = "insert into TaiKhoan values(?,?,?,?)";
 			sta = con.prepareStatement(sql);
 
 			sta.setString(1, tk.getMaTaiKhoan());
-			sta.setString(2, tk.getEmail());
-			sta.setString(3, tk.getMatKhau());
-			sta.setString(4, tk.getTenTaiKhoan());
-			sta.setString(5, tk.getNhanVien().getMaNhanVien());
+			sta.setString(2, tk.getMatKhau());
+			sta.setString(3, tk.getTenTaiKhoan());
+			sta.setString(4, tk.getNhanVien().getMaNhanVien());
 			n = sta.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -114,16 +111,13 @@ public class Dao_TaiKhoan implements I_TaiKhoan{
 		try {
 			ConnectDB.getInstance();
 			Connection con = ConnectDB.getConnection();
-
-			String sql = "update TaiKhoan set EMAIL = ?, MATKHAU = ?, TENTAIKHOAN = ?, MANHANVIEN =? where MATAIKHOAN = ?";
+			String sql = "update TAIKHOAN set MATKHAU = ?, TENTAIKHOAN = ?, MANHANVIEN = ? where MATAIKHOAN = ?";
 			sta = con.prepareStatement(sql);
 
-			
-			sta.setString(1, tk.getEmail());
-			sta.setString(2, tk.getMatKhau());
-			sta.setString(3, tk.getTenTaiKhoan());
-			sta.setString(4, tk.getNhanVien().getMaNhanVien());
-			sta.setString(5, tk.getMaTaiKhoan());
+			sta.setString(1, tk.getMatKhau());
+			sta.setString(2, tk.getTenTaiKhoan());
+			sta.setString(3, tk.getNhanVien().getMaNhanVien());
+			sta.setString(4, tk.getMaTaiKhoan());
 			n = sta.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -138,8 +132,8 @@ public class Dao_TaiKhoan implements I_TaiKhoan{
 	}
 
 	@Override
-	public TaiKhoan getTKTheoEmail(String partialEmailNhanVien) {
-	    TaiKhoan tk = null;
+	public ArrayList<TaiKhoan> getTKTheoEmailNV(String partialEmailNhanVien) {
+		ArrayList<TaiKhoan> dsTK = new ArrayList<TaiKhoan>();
 	    PreparedStatement sta = null;
 	    try {
 	        ConnectDB.getInstance();
@@ -151,12 +145,12 @@ public class Dao_TaiKhoan implements I_TaiKhoan{
 	        ResultSet rs = sta.executeQuery();
 	        while (rs.next()) {
 	            String maTK = rs.getString("MATAIKHOAN");
-	            String email = rs.getString("EMAIL");
 	            String matKhau = rs.getString("MATKHAU");
 	            String tenTK = rs.getString("TENTAIKHOAN");
 	            NhanVien nhanVien = new NhanVien(rs.getString("MANHANVIEN"));
 
-	            tk = new TaiKhoan(maTK, email, matKhau, tenTK, nhanVien);
+	            TaiKhoan tk = new TaiKhoan(maTK, matKhau, tenTK, nhanVien);
+	            dsTK.add(tk);
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
@@ -167,7 +161,40 @@ public class Dao_TaiKhoan implements I_TaiKhoan{
 	            e.printStackTrace();
 	        }
 	    }
-	    return tk;
+	    return dsTK;
+	}
+
+	@Override
+	public ArrayList<TaiKhoan> getTKTheoTenNV(String tenNV) {
+		ArrayList<TaiKhoan> dsTK = new ArrayList<TaiKhoan>();
+	    PreparedStatement sta = null;
+	    try {
+	        ConnectDB.getInstance();
+	        Connection con = ConnectDB.getConnection();
+	        String sql = "SELECT tk.* FROM TaiKhoan tk JOIN NhanVien nv ON tk.MANHANVIEN = nv.MANHANVIEN WHERE nv.HOTENNHANVIEN LIKE ?";
+	        sta = con.prepareStatement(sql);
+	        sta.setString(1, "%" + tenNV + "%"); // Tìm kiếm gần đúng
+
+	        ResultSet rs = sta.executeQuery();
+	        while (rs.next()) {
+	            String maTK = rs.getString("MATAIKHOAN");
+	            String matKhau = rs.getString("MATKHAU");
+	            String tenTK = rs.getString("TENTAIKHOAN");
+	            NhanVien nhanVien = new NhanVien(rs.getString("MANHANVIEN"));
+
+	            TaiKhoan tk = new TaiKhoan(maTK, matKhau, tenTK, nhanVien);
+	            dsTK.add(tk);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            sta.close();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    return dsTK;
 	}
 
 

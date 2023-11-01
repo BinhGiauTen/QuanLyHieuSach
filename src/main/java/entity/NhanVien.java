@@ -13,8 +13,9 @@ public class NhanVien {
     private String soDienThoai;
     private String email;
     private boolean gioiTinh;
-    private String tinhTrang;
     private String chucVu;
+    private String tinhTrang;
+    
 	public String getMaNhanVien() {
 		return maNhanVien;
 	}
@@ -70,7 +71,7 @@ public class NhanVien {
 		this.chucVu = chucVu;
 	}
 	public NhanVien(String maNhanVien, String hoTenNhanVien, Date ngaySinh, String diaChi, String soDienThoai,
-			String email, boolean gioiTinh, String tinhTrang, String chucVu) {
+			String email, boolean gioiTinh, String chucVu, String tinhTrang) {
 		super();
 		this.maNhanVien = maNhanVien;
 		this.hoTenNhanVien = hoTenNhanVien;
@@ -79,8 +80,8 @@ public class NhanVien {
 		this.soDienThoai = soDienThoai;
 		this.email = email;
 		this.gioiTinh = gioiTinh;
-		this.tinhTrang = tinhTrang;
 		this.chucVu = chucVu;
+		this.tinhTrang = tinhTrang;
 	}
 	public NhanVien() {
 		super();
@@ -94,7 +95,7 @@ public class NhanVien {
 	public String toString() {
 		return "NhanVien [maNhanVien=" + maNhanVien + ", hoTenNhanVien=" + hoTenNhanVien + ", ngaySinh=" + ngaySinh
 				+ ", diaChi=" + diaChi + ", soDienThoai=" + soDienThoai + ", email=" + email + ", gioiTinh=" + gioiTinh
-				+ ", tinhTrang=" + tinhTrang + ", chucVu=" + chucVu + "]";
+				+ ", chucVu=" + chucVu + ", tinhTrang=" + tinhTrang + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -111,6 +112,8 @@ public class NhanVien {
 		NhanVien other = (NhanVien) obj;
 		return Objects.equals(maNhanVien, other.maNhanVien);
 	}
+	
+	
 
     
 }

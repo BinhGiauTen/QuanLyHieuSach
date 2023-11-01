@@ -8,7 +8,7 @@ public interface I_KeHang {
 
 	public ArrayList<KeHang> getAllKeHang();
 	
-	public KeHang getKeHangTheoTen(String tenKeHang);
+	public ArrayList<KeHang> getKeHangTheoTen(String tenKeHang);
 	
 	public KeHang getKeHangTheoMa(String maKeHang);
 	

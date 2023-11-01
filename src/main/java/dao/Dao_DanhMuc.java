@@ -42,22 +42,23 @@ public class Dao_DanhMuc implements I_DanhMuc{
 	}
 
 	@Override
-	public DanhMuc getDanhMucTheoTen(String tenDanhMuc) {
-		DanhMuc dm = null;
+	public ArrayList<DanhMuc> getDanhMucTheoTen(String tenDanhMuc) {
+		ArrayList<DanhMuc> dsDM = new ArrayList<DanhMuc>();
 		PreparedStatement sta = null;
 		try {
 			ConnectDB.getInstance();
 			Connection con = ConnectDB.getConnection();
-			String sql = "Select * from DANHMUC where TENDANHMUC = ?";
+			String sql = "Select * from DANHMUC where TENDANHMUC LIKE ?";
 			sta = con.prepareStatement(sql);
-			sta.setString(1, tenDanhMuc);
+			sta.setString(1, "%" + tenDanhMuc + "%");
 
 			ResultSet rs = sta.executeQuery();
 			while (rs.next()) {
 				String maDM = rs.getString("MADANHMUC");
 				String tenDM = rs.getString("TENDANHMUC");
 				
-				dm = new DanhMuc(maDM, tenDM);
+				DanhMuc dm = new DanhMuc(maDM, tenDM);
+				dsDM.add(dm);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -68,7 +69,7 @@ public class Dao_DanhMuc implements I_DanhMuc{
 				e.printStackTrace();
 			}
 		}
-		return dm;
+		return dsDM;
 	}
 
 	@Override

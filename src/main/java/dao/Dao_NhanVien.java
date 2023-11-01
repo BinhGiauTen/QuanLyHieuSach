@@ -22,7 +22,8 @@ public class Dao_NhanVien implements I_NhanVien{
 	public ArrayList<NhanVien> getAllNhanVien() {
 		ArrayList<NhanVien> dsNV = new ArrayList<NhanVien>();
 		try {
-			Connection con = ConnectDB.getInstance().getConnection();
+			ConnectDB.getInstance();
+			Connection con = ConnectDB.getConnection();
 			String sql = "Select * from NhanVien";
 			Statement sta = con.createStatement();
 			ResultSet rs =sta.executeQuery(sql);
@@ -38,7 +39,7 @@ public class Dao_NhanVien implements I_NhanVien{
 				String chucVu = rs.getString("CHUCVU");
 				String tinhTrang = rs.getString("TINHTRANG");
 				
-				NhanVien nv = new NhanVien(maNhanVien, hoTenNhanVien, ngaySinh, diaChi, soDienThoai, email, gioiTinh, tinhTrang, chucVu);
+				NhanVien nv = new NhanVien(maNhanVien, hoTenNhanVien, ngaySinh, diaChi, soDienThoai, email, gioiTinh, chucVu, tinhTrang);
 				dsNV.add(nv);
 				
 			}
@@ -50,20 +51,117 @@ public class Dao_NhanVien implements I_NhanVien{
 
 	@Override
 	public NhanVien getTheoMaNV(String maNV) {
-		// TODO Auto-generated method stub
-		return null;
+		NhanVien nv = null;
+		PreparedStatement sta = null;
+		try {
+			ConnectDB.getInstance();
+			Connection con = ConnectDB.getConnection();
+			String sql = "Select * from NHANVIEN where MANHANVIEN = ?";
+			sta = con.prepareStatement(sql);
+			sta.setString(1, maNV);
+
+			ResultSet rs = sta.executeQuery();
+			while (rs.next()) {
+				String maNhanVien = rs.getString("MANHANVIEN");
+				String hoTenNhanVien = rs.getString("HOTENNHANVIEN");
+				Date ngaySinh = rs.getDate("NGAYSINH");
+				String diaChi = rs.getString("DIACHI");
+				String soDienThoai = rs.getString("SODIENTHOAI");
+				String email = rs.getString("EMAIL");
+				boolean gioiTinh = rs.getBoolean("GIOITINH");
+				String chucVu = rs.getString("CHUCVU");
+				String tinhTrang = rs.getString("TINHTRANG");
+				nv = new NhanVien(maNhanVien, hoTenNhanVien, ngaySinh, diaChi, soDienThoai, email, gioiTinh, chucVu, tinhTrang);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				sta.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return nv;
 	}
 
 	@Override
 	public ArrayList<NhanVien> getTheoHoTen(String hoTen) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<NhanVien> dsNV = new ArrayList<NhanVien>();
+		PreparedStatement sta = null;
+		try {
+			ConnectDB.getInstance();
+			Connection con = ConnectDB.getConnection();
+			String sql = "Select * from NHANVIEN where HOTENNHANVIEN LIKE ?";
+			sta = con.prepareStatement(sql);
+			sta.setString(1, "%" + hoTen + "%");
+
+			ResultSet rs = sta.executeQuery();
+
+			while (rs.next()) {
+				String maNhanVien = rs.getString("MANHANVIEN");
+				String hoTenNhanVien = rs.getString("HOTENNHANVIEN");
+				Date ngaySinh = rs.getDate("NGAYSINH");
+				String diaChi = rs.getString("DIACHI");
+				String soDienThoai = rs.getString("SODIENTHOAI");
+				String email = rs.getString("EMAIL");
+				boolean gioiTinh = rs.getBoolean("GIOITINH");
+				String chucVu = rs.getString("CHUCVU");
+				String tinhTrang = rs.getString("TINHTRANG");
+
+				NhanVien nv = new NhanVien(maNhanVien, hoTenNhanVien, ngaySinh, diaChi, soDienThoai, email, gioiTinh, chucVu, tinhTrang);
+				dsNV.add(nv);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				sta.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return dsNV;
 	}
 
 	@Override
 	public ArrayList<NhanVien> getTheoSDT(String sdt) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<NhanVien> dsNV = new ArrayList<NhanVien>();
+		PreparedStatement sta = null;
+		try {
+			ConnectDB.getInstance();
+			Connection con = ConnectDB.getConnection();
+			String sql = "Select * from NHANVIEN where SODIENTHOAI LIKE ?";
+			sta = con.prepareStatement(sql);
+			sta.setString(1, "%" + sdt + "%");
+
+			ResultSet rs = sta.executeQuery();
+
+			while (rs.next()) {
+				String maNhanVien = rs.getString("MANHANVIEN");
+				String hoTenNhanVien = rs.getString("HOTENNHANVIEN");
+				Date ngaySinh = rs.getDate("NGAYSINH");
+				String diaChi = rs.getString("DIACHI");
+				String soDienThoai = rs.getString("SODIENTHOAI");
+				String email = rs.getString("EMAIL");
+				boolean gioiTinh = rs.getBoolean("GIOITINH");
+				String chucVu = rs.getString("CHUCVU");
+				String tinhTrang = rs.getString("TINHTRANG");
+
+				NhanVien nv = new NhanVien(maNhanVien, hoTenNhanVien, ngaySinh, diaChi, soDienThoai, email, gioiTinh, chucVu, tinhTrang);
+				dsNV.add(nv);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				sta.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return dsNV;
 	}
 
 	@Override
@@ -84,6 +182,7 @@ public class Dao_NhanVien implements I_NhanVien{
 			sta.setBoolean(7, nv.isGioiTinh());
 			sta.setString(8, nv.getChucVu());
 			sta.setString(9, nv.getTinhTrang());
+			n = sta.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -127,23 +226,5 @@ public class Dao_NhanVien implements I_NhanVien{
 		}
 		return n>0;
 	}
-
-	@Override
-	public boolean xoa(String maNV) {
-		PreparedStatement sta = null;
-		int n = 0;
-		try {
-			ConnectDB.getInstance();
-			Connection con = ConnectDB.getConnection();
-
-			String sql = "delete from NhanVien where MANHANVIEN = ?";
-			sta = con.prepareStatement(sql);
-
-			sta.setString(1, maNV);
-			n = sta.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return n > 0;	}
 
 }

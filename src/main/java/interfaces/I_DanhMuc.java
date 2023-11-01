@@ -7,7 +7,7 @@ import entity.DanhMuc;
 public interface I_DanhMuc {
 	public ArrayList<DanhMuc> getAllDanhMuc();
 	
-	public DanhMuc getDanhMucTheoTen(String tenDanhMuc);
+	public ArrayList<DanhMuc> getDanhMucTheoTen(String tenDanhMuc);
 	
 	public DanhMuc getDanhMucTheoMa(String maDanhMuc);
 	

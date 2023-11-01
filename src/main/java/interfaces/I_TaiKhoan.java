@@ -14,6 +14,8 @@ public interface I_TaiKhoan {
 	
 	public boolean capNhat(TaiKhoan tk);
 	
-	public TaiKhoan getTKTheoEmail(String email);
+	public ArrayList<TaiKhoan> getTKTheoEmailNV(String email);
+	
+	public ArrayList<TaiKhoan> getTKTheoTenNV(String tenNV);
 
 }

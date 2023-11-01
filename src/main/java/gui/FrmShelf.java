@@ -6,10 +6,12 @@ package gui;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import dao.Dao_KeHang;
 import entity.KeHang;
+import entity.KhuyenMai;
 import entity.NhanVien;
 
 /**
@@ -25,6 +27,7 @@ public class FrmShelf extends javax.swing.JInternalFrame {
     public FrmShelf() {
         initComponents();
         modelKH = (DefaultTableModel) tblKeHang.getModel();
+        napDuLieuKeHangTuCSDL(keHang_dao.getAllKeHang());
         
     }
 
@@ -86,7 +89,7 @@ public class FrmShelf extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Tình trạng:");
 
-        cbTinhTrang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Còn chỗ chứa", "Hết chỗ chứa", "Ngưng sử dụng", " " }));
+        cbTinhTrang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Còn trống", "Đầy đủ", "Ngưng sử dụng", "" }));
 
         txtViTri.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -308,35 +311,45 @@ public class FrmShelf extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTenKHActionPerformed
 
-    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnThemActionPerformed
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {
+    	KeHang kh= revertKeHangFromFields();
+        if(!keHang_dao.them(kh)) {
+        	JOptionPane.showMessageDialog(this, "Thêm thất bại. Đã xảy ra lỗi!!!");
+        	
+        }else {
+        	napDuLieuKeHangTuCSDL(keHang_dao.getAllKeHang());
+        	tblKeHang.clearSelection();
+        }
+    }
 
-    private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCapNhatActionPerformed
+    private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {
+        update();
+    }
 
-    private void btnTaoMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaoMoiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTaoMoiActionPerformed
+    private void btnTaoMoiActionPerformed(java.awt.event.ActionEvent evt) {
+    	xoaTrangKeHang();
+        napDuLieuKeHangTuCSDL(keHang_dao.getAllKeHang());
+        tblKeHang.clearSelection();
+    }
 
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSearchActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {
+        timKeHangTheoTen();
+    }
 
     private void txtViTriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtViTriActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtViTriActionPerformed
 
-    private void tblKeHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblKeHangMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tblKeHangMouseClicked
+    private void tblKeHangMouseClicked(java.awt.event.MouseEvent evt) {
+        int r = tblKeHang.getSelectedRow();
+        fillForm(r);
+    }
     
     public void napDuLieuKeHangTuCSDL(ArrayList<KeHang> ds) {
     	DefaultTableModel dm = (DefaultTableModel) tblKeHang.getModel();
 		dm.getDataVector().removeAllElements();
 		for (KeHang kh : ds) {
-			modelKH.addRow(new Object[] {kh.getMaKeHang(),kh.getTenKeHang(),kh.getViTri(),kh.getTinhTrang()});
+			modelKH.addRow(new Object[] {kh.getMaKeHang(),kh.getTenKeHang(),kh.getViTri(),kh.getSucChua(),kh.getTinhTrang()});
 		}
     }
     
@@ -349,19 +362,65 @@ public class FrmShelf extends javax.swing.JInternalFrame {
     	txtTenKH.requestFocus();
     }
     
-//    private KeHang revertKeHangFromFiels() {
-//    	String maKH = phatSinhMaKH();
-//    	String tenKH = txtTenKH.getText().trim();
-//    	String viTri = txtViTri.getText().trim();
-//    	String sucChua = txtSucChua.getText().trim();
-//    	String tinhTrang = (String) cbTinhTrang.getSelectedItem();
-//    	KeHang kh = new KeHang(maKH, tenKH, viTri, tinhTrang);
-//    	return kh;
-//    }
+    private KeHang revertKeHangFromFields() {
+    	String maKH = phatSinhMaKH();
+    	String tenKH = txtTenKH.getText().trim();
+    	String viTri = txtViTri.getText().trim();
+    	int sucChua = Integer.parseInt(txtSucChua.getText().trim());
+    	String tinhTrang = (String) cbTinhTrang.getSelectedItem();
+    	KeHang kh = new KeHang(maKH, tenKH, viTri, sucChua, tinhTrang);
+    	return kh;
+    }
     
     public String phatSinhMaKH() {
     	String prefix = "KH";
     	return prefix + String.format("%03d", modelKH.getRowCount()+ 1);
+    }
+    
+    public void fillForm (int r) {
+    	txtMaKH.setText(tblKeHang.getValueAt(r, 0).toString());
+    	txtTenKH.setText(tblKeHang.getValueAt(r, 1).toString());
+    	txtViTri.setText(tblKeHang.getValueAt(r, 2).toString());
+    	txtSucChua.setText(tblKeHang.getValueAt(r, 3).toString());
+    	cbTinhTrang.setSelectedItem(tblKeHang.getValueAt(r, 4).toString());
+    }
+    
+    public void timKeHangTheoTen() {
+    	String tenKH = txtTimKiem.getText().trim();
+    	if (tenKH.trim() == "") {
+			napDuLieuKeHangTuCSDL(keHang_dao.getAllKeHang());
+			xoaTrangKeHang();
+		} else {
+			ArrayList<KeHang> khList = keHang_dao.getKeHangTheoTen(tenKH);
+			if (khList.size() > 0) {
+				napDuLieuKeHangTuCSDL(khList);
+				xoaTrangKeHang();
+
+			} else {
+				JOptionPane.showMessageDialog(this, "Không tìm thấy!");
+			}
+		}
+    }
+    
+    public void update() {
+    	int r = tblKeHang.getSelectedRow();
+		if (r == -1) {
+			JOptionPane.showMessageDialog(null, "Bạn chưa chọn dòng để cập nhật thông tin");
+		} else {
+			String maKM = txtMaKH.getText().trim();
+			String tenKM = txtTenKH.getText().trim();
+			String viTri = txtViTri.getText().trim();
+			int sucChua = Integer.parseInt(txtSucChua.getText().trim());
+	    	String tinhTrang = cbTinhTrang.getSelectedItem().toString();
+	    	KeHang khMoi = new KeHang(maKM, tenKM, viTri, sucChua, tinhTrang);
+			if (!keHang_dao.capNhat(khMoi)) {
+				JOptionPane.showMessageDialog(this, "Lỗi không thể cập nhật");
+				tblKeHang.clearSelection();
+			} else {
+				JOptionPane.showMessageDialog(this, "Cập nhật thành công");
+				napDuLieuKeHangTuCSDL(keHang_dao.getAllKeHang());
+			}
+		}
     }
     
     
